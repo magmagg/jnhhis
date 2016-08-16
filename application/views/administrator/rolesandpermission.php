@@ -1,58 +1,26 @@
-<title><?php echo $title; ?></title>
+	<style>
+	table tbody td{
+		min-width: 100px;
+	}
+	</style>
   <!--sidebar end-->
   <!--main content start-->
   <section id="main-content">
       <section class="wrapper">
-
-        <?php
-            // echo "<pre>";
-            // print_r($permittedViews);
-            // echo "</pre>";
-         ?>
-
+		<div class="row">
         <div class="col-lg-12">
                <section class="panel">
                    <header class="panel-heading">
                       Roles and Permission
 
-                       <button type="button" name="button" class="btn btn-primary pull-right" data-toggle="modal" href="#myModal3">
-                         Add new role</button>
+                       <a  class="btn btn-primary btn-sm pull-right" data-toggle="modal" href="#myModal3"><i class="fa fa-plus"></i></a>
                    </header>
 
-                   <!-- Modal -->
-                              <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                  <div class="modal-dialog modal-sm">
-                                      <div class="modal-content">
-                                          <div class="modal-header">
-                                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                              <h4 class="modal-title">New Role</h4>
-                                          </div>
-                                          <div class="modal-body">
-                                          <?php echo form_open('Admin/addrole'); ?>
-                                            <div class="form-group">
+					<div class="panel-body">
+						<div class="adv-table" >
+							<table class="table table-striped display nowrap" cellspacing="0" width="100%" style="text-align: center;" id="dynamic-table">
 
-                                              <input type="text" name="rolename" class="form-control"  placeholder="role name"><br>
-                                              <textarea name="desc" class="form-control" rows="8" cols="40" placeholder="description"></textarea>
-                                            </div>
-
-
-                                          </div>
-                                          <div class="modal-footer">
-                                              <button class="btn btn-danger" type="submit"> Add</button>
-                                          </div>
-                                          <?php echo form_close(); ?>
-                                      </div>
-                                  </div>
-                              </div>
-                              <!-- modal -->
-
-
-
-                   <div class="panel-body">
-                       <section id="no-more-tables">
-                           <table class="table table-bordered table-striped table-condensed cf">
-
-                               <thead class="cf">
+                               <thead>
                                <tr>
                                   <th>Action</th>
                                    <th>id</th>
@@ -61,7 +29,7 @@
 
 
                                    <th><?php echo $task_name['task_name']; ?></th>
-                                  <? } ?>
+                                  <?php } ?>
                                </tr>
                                </thead>
                                <tbody>
@@ -113,27 +81,56 @@
                                                            ?>
                                                           <td><?php if(empty($flag)){echo "<i class='fa fa-circle-o'></i>";}else{echo $var;}?></td>
 
-                                                <?      }
+                                                <?php      }
                                                       echo "</tr></table>";
 
                                                   }
 
                                                ?>
                                           </td>
-                                      <? }
-                                    ?>
+                                      <?php } ?>
                                </tr>
-                                <?php }
-                               ?>
+                                <?php } ?>
 
                              </tbody>
-                  </table>
-              </section>
-          </div>
-      </section>
-  </div>
+						</table>
+              
+						</div>
+					</div>
+				</section>
+
+		</div>
+		</div>
+	</section>
+</section>
+
+  <!-- Modal -->
+                              <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog modal-sm">
+                                      <div class="modal-content">
+                                          <div class="modal-header">
+                                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                              <h4 class="modal-title">New Role</h4>
+                                          </div>
+                                          <div class="modal-body">
+                                          <?php echo form_open('Admin/addrole'); ?>
+                                            <div class="form-group">
+
+                                              <input type="text" name="rolename" class="form-control"  placeholder="role name"><br>
+                                              <textarea name="desc" class="form-control" rows="8" cols="40" placeholder="description"></textarea>
+                                            </div>
 
 
+                                          </div>
+                                          <div class="modal-footer">
+                                              <button class="btn btn-danger" type="submit"> Add</button>
+                                          </div>
+                                          <?php echo form_close(); ?>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- modal -->
+							  
   <!-- Modal -->
 <div class="modal fade " id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
  <div class="modal-dialog">
@@ -162,7 +159,7 @@
                                       if($task_name['task_id'] == $permission['task_id']){
                                 ?>
 
-                                    <?php echo form_checkbox('permissions[]', $permission['permission_id'])." ".$permission['permission_name'];
+                                    <?php echo form_checkbox('permissions[]', $permission['permission_id'])	." ".$permission['permission_name'];
 
                                     ?>
 
@@ -177,6 +174,7 @@
 
                     <?php
                       }
+					  
 
                     ?>
 
@@ -196,30 +194,36 @@
  </div>
 </div>
                              <!-- modal -->
+      
 
+<script src="<?=base_url()?>js/jquery.js"></script>
+<script src="<?=base_url()?>js/bootstrap.min.js"></script>
 
+<script class="include" type="text/javascript" src="<?=base_url()?>js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="<?=base_url()?>js/jquery.scrollTo.min.js"></script>
+<script src="<?=base_url()?>js/jquery.nicescroll.js" type="text/javascript"></script>
 
+<!--right slidebar-->
+<script src="<?=base_url()?>js/slidebars.min.js"></script>
+<!--common script for all pages-->
+<script src="<?=base_url()?>js/common-scripts.js"></script>
 
-
-
-
-
-      </section>
-  </section>
-
+<!--dynamic table initialization -->
+<script type="text/javascript" language="javascript" src="<?php echo base_url()?>assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>assets/data-tables/DT_bootstrap.js"></script>
+<script src="<?php echo base_url()?>js/dynamic_table_init.js"></script>
 <script type="text/javascript">
 function editrole(d){
-    //console.log(d.getAttribute("data-userid"))
     document.getElementById("updatedrolename").value = d.getAttribute("data-rolename")
     document.getElementById("updatedoldname").value = d.getAttribute("data-rolename")
     document.getElementById("hiddenusertypeid").value = d.getAttribute("data-userTypeId")
-    // document.getElementById("updatelastname").value = d.getAttribute("data-lastname")
-    // document.getElementById("updatemiddlename").value = d.getAttribute("data-middlename")
-    // document.getElementById("updateusername").value = d.getAttribute("data-username")
-    // document.getElementById("updateemail").value = d.getAttribute("data-email")
-    // document.getElementById("updatemobilenumber").value = d.getAttribute("data-mobilenumber")
-    // document.getElementById("updatebirthdate").value = d.getAttribute("data-birthdate")
     $("#edit").modal()
 
 }
+
+$( document ).ready(function() {
+   
+});
+
+
 </script>
