@@ -16,5 +16,16 @@
   		$data = $this->db->get();
   		return $data->result();
   	}
+
+    function fetchAllUserTypes(){
+
+      $this -> db ->select('*');
+      $this -> db ->from('user_type');
+      $data = $this->db->get();
+      return $data->result_array();
+    }
+
+
+
   }
  ?>

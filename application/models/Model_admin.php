@@ -18,12 +18,12 @@
                                  join user_type b on a.type_id = b.type_id");
       return $query->result_array();
     }
-	
+
 	function get_user_type(){
       $query = $this->db->query("select * from user_type");
       return $query->result_array();
     }
-	
+
     function get_permissions($type_id)
     {
       $where = "user_type_id ='$type_id' and access='1'";
@@ -994,6 +994,28 @@
                 }
 
 
+        }
+    }
+
+
+
+    function addtask($data)
+    {
+      $sql = $this->db->insert('task', $data);
+        if($sql){
+          return true;
+        }else{
+          return false;
+        }
+    }
+
+    function addpermission($data)
+    {
+      $sql = $this->db->insert('permission', $data);
+        if($sql){
+          return true;
+        }else{
+          return false;
         }
     }
 

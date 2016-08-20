@@ -5,17 +5,20 @@
     function __construct(){
       parent::__construct();
       $this->load->model('Model_Radiology');
-      if($this->session->userdata("user_loggedin")==TRUE){
-        if($this->session->userdata("type_id") == 1){
-          redirect(base_url()."Admin", "refresh");
-        }
-      }else{
-        redirect(base_url());
-      }
+      $this->load->model('Model_admin');
+      // if($this->session->userdata("user_loggedin")==TRUE){
+      //   if($this->session->userdata("type_id") == 1){
+      //     redirect(base_url()."Admin", "refresh");
+      //   }
+      // }else{
+      //   redirect(base_url());
+      // }
     }
 
     function index(){
-      $this->load->view('radiology/includes/header.php');
+      $header['tasks'] = $this->Model_admin->get_tasks($this->session->userdata('type_id'));
+      $header['permissions'] = $this->Model_admin->get_permissions($this->session->userdata('type_id'));
+      $this->load->view('administrator/includes/header.php', $header);
       $this->load->view('radiology/index.php');
       $this->load->view('radiology/includes/footer.php');
     }

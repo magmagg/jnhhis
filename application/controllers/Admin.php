@@ -24,7 +24,7 @@
       $this->load->view('administrator/includes/footer.php');
     }
     /*=========================================================================================================================*/
-	
+
 	function User(){
 	  $header['tasks'] = $this->Model_admin->get_tasks($this->session->userdata('type_id'));
       $header['permissions'] = $this->Model_admin->get_permissions($this->session->userdata('type_id'));
@@ -1443,6 +1443,81 @@ function EditSpec($id){
       $this->load->view('administrator/includes/header.php',$header);
       $this->load->view('administrator/rolesandpermission', $data);
     }
+
+    function rolesandpermission_settings()
+    {
+      $data['title'] = "HIS";
+      $data['permissions'] = $this->Model_admin->fetch_permissions();
+      $data['task_names'] = $this->Model_admin->fetch_tasks();
+      $header['tasks'] = $this->Model_admin->get_tasks($this->session->userdata('type_id'));
+      $header['permissions'] = $this->Model_admin->get_permissions($this->session->userdata('type_id'));
+      $this->load->view('administrator/includes/header.php',$header);
+      $this->load->view('administrator/RandPsettings', $data);
+    //  $this->load->view('administrator/includes/footer.php');
+
+    }
+
+    function medchangebaseprice()
+    {
+        $data['title'] = "HIS";
+        $header['tasks'] = $this->Model_admin->get_tasks($this->session->userdata('type_id'));
+        $header['permissions'] = $this->Model_admin->get_permissions($this->session->userdata('type_id'));
+        $this->load->view('administrator/includes/header.php',$header);
+        $this->load->view('administrator/changeMedbaseprice', $data);
+        $this->load->view('administrator/includes/footer');
+
+    }
+
+
+    function addtask()
+    {
+      $this->form_validation->set_rules('taskname', 'Task name', 'required|trim|xss_clean|strip_tags');
+      $this->form_validation->set_rules('tasklogo', 'Task logo', 'required|trim|xss_clean|strip_tags');
+
+        if($this->form_validation->run()){
+
+            $data = array(
+              'task_logo' => $this->input->post('tasklogo'),
+              'task_name' => $this->input->post('taskname')
+            );
+            if($this->Model_admin->addtask($data)){
+                //john renz pa add ng notifs sa page na successfully add
+              $this ->rolesandpermission_settings();
+            }else{
+              $this ->rolesandpermission_settings();
+            }
+        }else{
+          $this ->rolesandpermission_settings();
+        }
+
+    }
+
+    function addpermission()
+    {
+      $this->form_validation->set_rules('permissionname', 'Permission Name', 'required|trim|xss_clean|strip_tags');
+      $this->form_validation->set_rules('permissionlink', 'permissions link', 'required|trim|xss_clean|strip_tags');
+      $this->form_validation->set_rules('taskid', 'Task', 'required');
+
+        if($this->form_validation->run()){
+
+            $data = array(
+              'permission_name' => $this->input->post('permissionname'),
+              'permission_link' => $this->input->post('permissionlink'),
+              'task_id' => $this->input->post('taskid')
+            );
+
+              if($this->Model_admin->addpermission($data)){
+                //set flashdata here
+                $this->rolesandpermission_settings();
+              }else{
+                $this->rolesandpermission_settings();
+              }
+
+        }else{
+            $this->rolesandpermission_settings();
+        }
+    }
+
 
     function addrole()
     {

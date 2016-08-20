@@ -59,35 +59,36 @@
                   "user_loggedin"=>TRUE
                 );
               $this->session->set_userdata($user_session);
-              if($user_details->type_id == 1){
-                redirect(base_url()."Admin","refresh");
-              }else if($user_details->type_id == 5){
-                redirect(base_url()."Radiology", "refresh");
-              }else if($user_details->type_id == 6){
-                redirect(base_url()."Laboratory", "refresh");
-              }
-              else if($user_details->type_id == 3){
-                redirect(base_url()."Nurse", "refresh");
-              }else if($user_details->type_id == 11){
-                redirect(base_url()."Csr", "refresh");
-              }else if($user_details->type_id >= 13 || $user_details->type_id <= 15){
-                redirect(base_url()."Management", "refresh");
-              }
-              else{
-                echo "Unauthorized Access!";
-              }
+
+                $usertypes = $this->Model_core->fetchAllUserTypes();
+
+
+                  foreach ($usertypes as $userType) {
+
+                        if($user_details->type_id == $userType['type_id']){
+
+
+                            redirect(base_url().$userType['controller_type'],"refresh");
+                        }
+
+                  }
+
+
             }
           }else{
             //Unsuccess
             echo "Wrong password and Username!";
+            $this->index();
           }
         }else{
           //Unsuccess
           echo "Wrong password and Username!";
+          $this->index();
         }
       }else{
         //Unsuccess
         echo "Wrong password and Username!";
+        $this->index();
       }
     }
   }

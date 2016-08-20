@@ -38,7 +38,11 @@
                                 ?>
                                <tr>
 
-                                    <td><i class='fa fa-trash-o'> | <a href="#"
+                                    <td>
+																				
+																			<i class='fa fa-trash-o'>
+
+																				 | <a href="#"
                                       data-rolename="<?php echo $user_type['name'];?>"
                                       data-userTypeId="<?php echo $user_type['type_id']?>"
                                       onclick="editrole(this)"> <i class='fa fa-edit pull-right' data-toggle="modal"></i></a>
@@ -94,7 +98,7 @@
 
                              </tbody>
 						</table>
-              
+
 						</div>
 					</div>
 				</section>
@@ -130,7 +134,7 @@
                                   </div>
                               </div>
                               <!-- modal -->
-							  
+
   <!-- Modal -->
 <div class="modal fade " id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
  <div class="modal-dialog">
@@ -174,7 +178,7 @@
 
                     <?php
                       }
-					  
+
 
                     ?>
 
@@ -194,7 +198,7 @@
  </div>
 </div>
                              <!-- modal -->
-      
+
 
 <script src="<?=base_url()?>js/jquery.js"></script>
 <script src="<?=base_url()?>js/bootstrap.min.js"></script>
@@ -222,7 +226,7 @@ function editrole(d){
 }
 
 $( document ).ready(function() {
-   
+
 });
 
 

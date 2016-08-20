@@ -11,12 +11,20 @@ class pharmacy extends CI_Controller{
   }
   /*=========================================================================================================================*/
 
+  function index()
+  {
+    $this->landing();
+  }
+
+
+
   function landing()
   {
     $header['tasks'] = $this->Model_admin->get_tasks($this->session->userdata('type_id'));
     $header['permissions'] = $this->Model_admin->get_permissions($this->session->userdata('type_id'));
     $this->load->view('administrator/includes/header', $header);
-    $this->load->view('pharmacy/landing');
+      $this->load->view('administrator/includes/footer.php');
+    //$this->load->view('pharmacy/landing');
   }
 
 
