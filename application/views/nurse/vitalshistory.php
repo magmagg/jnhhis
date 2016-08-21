@@ -1,153 +1,45 @@
-<title><?php echo $title; ?></title>
 <section id="main-content">
     <section class="wrapper">
-
-
                 <div class="row">
              <div class="col-lg-12">
                  <section class="panel">
-                   <h1 style="color: red;">SAMPLE DATA Only d pa tapos need vital signs table</h1>
+                   <h1 style="color: red;"></h1>
                      <header class="panel-heading">
                         <?php echo $this->uri->segment(3); ?> Vital signs History
+                        <a class='btn btn-primary btn-sm pull-right' data-toggle="modal" href="#myModal3">Record Vital Sign</a>
                      </header>
                      <div class="panel-body">
                          <section id="flip-scroll">
                              <table class="table table-bordered table-striped table-condensed cf">
                                  <thead class="cf">
                                  <tr>
+                                     <th>ID</th>
                                      <th>Date</th>
                                      <th>Time</th>
                                      <th class="numeric">Heart rate (pulse)</th>
                                      <th class="numeric">Respiratory rate</th>
                                      <th class="numeric">Blood pressure</th>
-                                     <th class="numeric">Body temperature</th>
-                                     <th class="numeric">High</th>
-                                     <th class="numeric">Low</th>
-                                     <th class="numeric">Volume</th>
+                                     <th class="numeric">Body temperature (Celsius)</th>
+                                     <th>Nurse</th>
                                  </tr>
                                  </thead>
                                  <tbody>
-                                 <tr>
-                                     <td>AAC</td>
-                                     <td>AUSTRALIAN AGRICULTURAL COMPANY LIMITED.</td>
-                                     <td class="numeric">$1.38</td>
-                                     <td class="numeric">-0.01</td>
-                                     <td class="numeric">-0.36%</td>
-                                     <td class="numeric">$1.39</td>
-                                     <td class="numeric">$1.39</td>
-                                     <td class="numeric">$1.38</td>
-                                     <td class="numeric">9,395</td>
-                                 </tr>
-                                 <tr>
-                                     <td>AAD</td>
-                                     <td>ARDENT LEISURE GROUP</td>
-                                     <td class="numeric">$1.15</td>
-                                     <td class="numeric">  +0.02</td>
-                                     <td class="numeric">1.32%</td>
-                                     <td class="numeric">$1.14</td>
-                                     <td class="numeric">$1.15</td>
-                                     <td class="numeric">$1.13</td>
-                                     <td class="numeric">56,431</td>
-                                 </tr>
-                                 <tr>
-                                     <td>AAX</td>
-                                     <td>AUSENCO LIMITED</td>
-                                     <td class="numeric">$4.00</td>
-                                     <td class="numeric">-0.04</td>
-                                     <td class="numeric">-0.99%</td>
-                                     <td class="numeric">$4.01</td>
-                                     <td class="numeric">$4.05</td>
-                                     <td class="numeric">$4.00</td>
-                                     <td class="numeric">90,641</td>
-                                 </tr>
-                                 <tr>
-                                     <td>ABC</td>
-                                     <td>ADELAIDE BRIGHTON LIMITED</td>
-                                     <td class="numeric">$3.00</td>
-                                     <td class="numeric">  +0.06</td>
-                                     <td class="numeric">2.04%</td>
-                                     <td class="numeric">$2.98</td>
-                                     <td class="numeric">$3.00</td>
-                                     <td class="numeric">$2.96</td>
-                                     <td class="numeric">862,518</td>
-                                 </tr>
-                                 <tr>
-                                     <td>ABP</td>
-                                     <td>ABACUS PROPERTY GROUP</td>
-                                     <td class="numeric">$1.91</td>
-                                     <td class="numeric">0.00</td>
-                                     <td class="numeric">0.00%</td>
-                                     <td class="numeric">$1.92</td>
-                                     <td class="numeric">$1.93</td>
-                                     <td class="numeric">$1.90</td>
-                                     <td class="numeric">595,701</td>
-                                 </tr>
-                                 <tr>
-                                     <td>ABY</td>
-                                     <td>ADITYA BIRLA MINERALS LIMITED</td>
-                                     <td class="numeric">$0.77</td>
-                                     <td class="numeric">  +0.02</td>
-                                     <td class="numeric">2.00%</td>
-                                     <td class="numeric">$0.76</td>
-                                     <td class="numeric">$0.77</td>
-                                     <td class="numeric">$0.76</td>
-                                     <td class="numeric">54,567</td>
-                                 </tr>
-                                 <tr>
-                                     <td>ACR</td>
-                                     <td>ACRUX LIMITED</td>
-                                     <td class="numeric">$3.71</td>
-                                     <td class="numeric">  +0.01</td>
-                                     <td class="numeric">0.14%</td>
-                                     <td class="numeric">$3.70</td>
-                                     <td class="numeric">$3.72</td>
-                                     <td class="numeric">$3.68</td>
-                                     <td class="numeric">191,373</td>
-                                 </tr>
-                                 <tr>
-                                     <td>ADU</td>
-                                     <td>ADAMUS RESOURCES LIMITED</td>
-                                     <td class="numeric">$0.72</td>
-                                     <td class="numeric">0.00</td>
-                                     <td class="numeric">0.00%</td>
-                                     <td class="numeric">$0.73</td>
-                                     <td class="numeric">$0.74</td>
-                                     <td class="numeric">$0.72</td>
-                                     <td class="numeric">8,602,291</td>
-                                 </tr>
-                                 <tr>
-                                     <td>AGG</td>
-                                     <td>ANGLOGOLD ASHANTI LIMITED</td>
-                                     <td class="numeric">$7.81</td>
-                                     <td class="numeric">-0.22</td>
-                                     <td class="numeric">-2.74%</td>
-                                     <td class="numeric">$7.82</td>
-                                     <td class="numeric">$7.82</td>
-                                     <td class="numeric">$7.81</td>
-                                     <td class="numeric">148</td>
-                                 </tr>
-                                 <tr>
-                                     <td>AGK</td>
-                                     <td>AGL ENERGY LIMITED</td>
-                                     <td class="numeric">$13.82</td>
-                                     <td class="numeric">  +0.02</td>
-                                     <td class="numeric">0.14%</td>
-                                     <td class="numeric">$13.83</td>
-                                     <td class="numeric">$13.83</td>
-                                     <td class="numeric">$13.67</td>
-                                     <td class="numeric">846,403</td>
-                                 </tr>
-                                 <tr>
-                                     <td>AGO</td>
-                                     <td>ATLAS IRON LIMITED</td>
-                                     <td class="numeric">$3.17</td>
-                                     <td class="numeric">-0.02</td>
-                                     <td class="numeric">-0.47%</td>
-                                     <td class="numeric">$3.11</td>
-                                     <td class="numeric">$3.22</td>
-                                     <td class="numeric">$3.10</td>
-                                     <td class="numeric">5,416,303</td>
-                                 </tr>
+                                   <tr>
+                                     <?php
+                                      foreach($vitalsign_data as $data){
+                                        echo "<tr>";
+                                          echo "<td>".$data['vital_id']."</td>";
+                                          echo "<td>".date('F d, Y', strtotime($data['date_recorded']))."</td>";
+                                          echo "<td>".date('H:i:s', strtotime($data['date_recorded']))."</td>";
+                                          echo "<td>".$data['heart_rate']."</td>";
+                                          echo "<td>".$data['resp_rate']."</td>";
+                                          echo "<td>".$data['blood_pres']."</td>";
+                                          echo "<td>".$data['body_temp']."</td>";
+                                          echo "<td>".$data['first_name']." ".$data['middle_name']." ".$data['last_name']."</td>";
+                                        echo "</tr>";
+                                      }
+                                     ?>
+                                   </tr>
                                  </tbody>
                              </table>
                          </section>
@@ -155,13 +47,49 @@
                  </section>
              </div>
           </div>
-
-
-
-
-
-
-
     </section>
   </section>
       <!--main content end-->
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-sm">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title">Vital Sign Record</h4>
+                  </div>
+                  <div class="modal-body">
+                  <?php echo form_open('Nurse/recordvitalsign/'.$this->uri->segment(3)); ?>
+                    <div class="form-group">
+                      <input type="text" name="heartrate" class="form-control"  placeholder="Heart Rate"><br>
+                      <input type="text" name="respiratoryrate" class="form-control"  placeholder="Respiratory Rate"><br>
+                      <input type="text" name="bloodpressure" class="form-control"  placeholder="Blood Pressure"><br>
+                      <input type="text" name="temperature" class="form-control"  placeholder="Body Temperature"><br>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                      <button class="btn btn-danger" type="submit">Submit</button>
+                  </div>
+                  <?php echo form_close();?>
+              </div>
+          </div>
+      </div>
+      <!-- modal -->
+
+      <script src="<?=base_url()?>js/jquery.js"></script>
+      <script src="<?=base_url()?>js/bootstrap.min.js"></script>
+
+      <script class="include" type="text/javascript" src="<?=base_url()?>js/jquery.dcjqaccordion.2.7.js"></script>
+      <script src="<?=base_url()?>js/jquery.scrollTo.min.js"></script>
+      <script src="<?=base_url()?>js/jquery.nicescroll.js" type="text/javascript"></script>
+
+      <!--right slidebar-->
+      <script src="<?=base_url()?>js/slidebars.min.js"></script>
+      <!--common script for all pages-->
+      <script src="<?=base_url()?>js/common-scripts.js"></script>
+
+      <!--dynamic table initialization -->
+      <script type="text/javascript" language="javascript" src="<?php echo base_url()?>assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
+      <script type="text/javascript" src="<?php echo base_url()?>assets/data-tables/DT_bootstrap.js"></script>
+      <script src="<?php echo base_url()?>js/dynamic_table_init.js"></script>

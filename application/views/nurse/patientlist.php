@@ -1,8 +1,6 @@
 <title><?php echo $title; ?></title>
 <section id="main-content">
     <section class="wrapper">
-
-
       <!-- page start-->
       <section class="panel">
 
@@ -10,12 +8,11 @@
               Patient Vital Signs
               <span class="pull-right">
                   <a href="<?php echo base_url();?>plan/vitalsigns"><button type="button" id="loading-btn" class="btn btn-warning btn-xs"><i class="fa fa-refresh"></i> Refresh</button></a>
-
               </span>
           </header>
           <div class="panel-body">
               <div class="row">
-                <?php echo form_open("Nurse/vitalsigns"); ?>
+                <?php echo form_open("Nurse/PatientList"); ?>
                   <div class="col-md-12">
                       <div class="input-group"><input type="text" name="keyword" placeholder="Search Here" class="input-sm form-control"> <span class="input-group-btn">
                       <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-search"></i> Search</button> </span></div>
@@ -53,7 +50,12 @@
                   </td>
                   <td>
                       <!-- <a href="project_details.html" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a> -->
-                      <a href="<?php echo base_url()?>Nurse/vitalshistory/<?php echo $patient['patient_id'];?>" class="btn btn-info btn-xs"><i class="fa fa-eye"></i> View vital signs</a>
+                      <a href="<?php echo base_url()?>Nurse/vitalshistory/<?php echo $patient['patient_id'];?>" class="btn btn-default btn-xs"><i class="fa fa-eye"></i> Vital Signs</a>
+                      <a href="<?php echo base_url()?>Nurse/admittinghistory/<?php echo $patient['patient_id'];?>" class="btn btn-primary btn-xs"><i class="fa fa-eye"></i> Admitting History </a>
+                      <a href="<?php echo base_url()?>Nurse/vitalshistory/<?php echo $patient['patient_id'];?>" class="btn btn-success btn-xs"><i class="fa fa-eye"></i> Overall Billing </a>
+                      <a href="<?php echo base_url()?>Nurse/laboratoryhistory/<?php echo $patient['patient_id'];?>" class="btn btn-warning btn-xs"><i class="fa fa-eye"></i> Laboratory </a>
+                      <a href="<?php echo base_url()?>Nurse/radiologyhistory/<?php echo $patient['patient_id'];?>" class="btn btn-danger btn-xs"><i class="fa fa-eye"></i> Radiology </a>
+                      <a href="<?php echo base_url()?>Nurse/pharmacyhistory/<?php echo $patient['patient_id'];?>" class="btn btn-info btn-xs"><i class="fa fa-eye"></i> Pharmacy</a>
                       <!-- <a href="<?php echo base_url()?>plan/deleteplan/<?php echo $patient['patient_id'];?>" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a> -->
                       <!-- <a href="#<?php echo $patient['patient_id']; ?>" class="btn btn-danger btn-xs" data-toggle="modal" ><i class="fa fa-trash-o"></i> Delete </a> -->
                   </td>
