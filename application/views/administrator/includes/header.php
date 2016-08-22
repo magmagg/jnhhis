@@ -24,11 +24,11 @@
     <!-- Custom styles for this template -->
     <link href="<?=base_url()?>css/style.css" rel="stylesheet">
     <link href="<?=base_url()?>css/style-responsive.css" rel="stylesheet" />
-
-
-
   </head>
+
+
   <body>
+    <?php echo $this->session->flashdata('msg'); ?>
 
     <section id="container" >
         <!--header start-->
@@ -254,8 +254,8 @@
                       </li>
                       <li class="dropdown">
                           <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                              <img alt="" width="30"src="<?=base_url()?>img/doctor.png">
-                              <span class="username"><?php echo $this->session->userdata("user_firstname") ?></span>
+                              <i class="fa fa-user"></i>
+                              <span class="username"><?php echo $this->session->userdata("user_firstname") . " ". $this->session->userdata("user_lastname") ?></span>
                               <b class="caret"></b>
                           </a>
                           <ul class="dropdown-menu extended logout">
@@ -298,7 +298,7 @@
                       echo "<ul class='sub'>";
 
 ?>
-                    
+
 <?php
                         foreach($permissions as $permission)
                         {

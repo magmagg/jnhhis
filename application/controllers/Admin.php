@@ -812,6 +812,7 @@
       $data['roomtypes'] = $this->Model_admin->get_roomtype_List();
       $this->load->view('administrator/includes/header.php',$header);
       $this->load->view('administrator/rooms/roomtypelist.php', $data);
+      $this->load->view('administrator/includes/toastr.php');
       //$this->load->view('administrator/includes/footer.php');
     }
 
@@ -829,6 +830,12 @@
                       'room_price' => $this->input->post('roomprice')
                      );
         $insertroomtype = $this->Model_admin->insertroomtype($data);
+
+        //Set Message for Toastr
+        $this->session->set_flashdata('msg', '<input type="hidden" id="title" value="Success">
+                    												  <input type="hidden" id="msg" value="Successfully Added Room Type">
+                    												  <input type="hidden" id="type" value="success">' );
+
         redirect(base_url()."Admin/RoomType");
       }
     }
