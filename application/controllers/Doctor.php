@@ -6,6 +6,7 @@
       parent::__construct();
         $this->load->model('Model_admin');
         $this->load->model('Model_doctor');
+        #comment
 
     }
 
